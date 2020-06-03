@@ -49,6 +49,14 @@ int createSword(int sizeWord, char* secretWord)
     return -1;
 }
 
+void hangmanPrint(int guessErr, char* secretWord, char* enterLetter)
+{
+    hangman(guessErr);
+    printf("%s\n", secretWord);
+    printf("Введенные буквы: ");
+    printf("%s", enterLetter);
+}
+
 int loseCondition(int guessErr, char* word)
 {
     if (guessErr == 6) {
