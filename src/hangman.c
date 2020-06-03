@@ -48,6 +48,17 @@ int createSword(int sizeWord, char* secretWord)
     }
     return -1;
 }
+
+int victoryCondition(int guessChar, char* word)
+{
+    if (guessChar == 0) {
+        printf("%s", word);
+        printf("\nВы победили!\n");
+        return 1;
+    }
+    return -1;
+}
+
 int mainMenuPrint()
 {
     int themes;
