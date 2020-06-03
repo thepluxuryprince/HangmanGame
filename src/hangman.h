@@ -4,5 +4,6 @@ void hangman(int n);
 int mainMenuPrint();
 int victoryCondition(int guessChar, char* word);
 int loseCondition(int guessErr, char* word);
+void hangmanPrint(int guessErr, char* secretWord, char* enterLetter);
 int createSword(int sizeWord, char* secretWord);
 #endif
