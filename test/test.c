@@ -24,6 +24,22 @@ CTEST(victoryCondition, incorrect_input)
     ASSERT_EQUAL(result, -1);
 }
 
+CTEST(loseCondition, correct_input)
+{
+    int guessErr = 6;
+    char word[] = { "test" };
+    int result = loseCondition(guessErr, word);
+    ASSERT_EQUAL(result, 1);
+}
+
+CTEST(loseCondition, incorrect_input)
+{
+    int guessErr = 0;
+    char word[] = { "test" };
+    int result = loseCondition(guessErr, word);
+    ASSERT_EQUAL(result, -1);
+}
+
 CTEST(createSword, incorrect_input)
 {
     char* secretWord;
