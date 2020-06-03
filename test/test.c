@@ -8,6 +8,21 @@ CTEST(createSword, correct_input)
     int result = createSword(10, secretWord);
     ASSERT_EQUAL(result, 1);
 }
+CTEST(victoryCondition, correct_input)
+{
+    int guessChar = 0;
+    char word[] = { "test" };
+    int result = victoryCondition(guessChar, word);
+    ASSERT_EQUAL(result, 1);
+}
+
+CTEST(victoryCondition, incorrect_input)
+{
+    int guessChar = 6;
+    char word[] = { "test" };
+    int result = victoryCondition(guessChar, word);
+    ASSERT_EQUAL(result, -1);
+}
 
 CTEST(createSword, incorrect_input)
 {
