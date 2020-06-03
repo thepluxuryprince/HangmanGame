@@ -48,3 +48,13 @@ int createSword(int sizeWord, char* secretWord)
     }
     return -1;
 }
+int mainMenuPrint()
+{
+    int themes;
+    printf("Добро пожаловать в игру HANGMAN!\n Выберите тему для игры!\n\n");
+    printf(" 1.Школа\n 2.Спорт\n 3.Мировые Лидеры\n 4.Марки Машин\n 5.Страны\n "
+           "6.Еда\n 7.Языки\n 8.Планеты\n");
+    printf("Введите число выбранной темы:");
+    scanf("%d", &themes);
+    return themes;
+}
