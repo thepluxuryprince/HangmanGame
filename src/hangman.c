@@ -49,6 +49,16 @@ int createSword(int sizeWord, char* secretWord)
     return -1;
 }
 
+int loseCondition(int guessErr, char* word)
+{
+    if (guessErr == 6) {
+        printf("%s", word);
+        printf("\nВы проиграли(\n");
+        return 1;
+    }
+    return -1;
+}
+
 int victoryCondition(int guessChar, char* word)
 {
     if (guessChar == 0) {
