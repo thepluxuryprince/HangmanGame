@@ -8,6 +8,7 @@ CTEST(createSword, correct_input)
     int result = createSword(10, secretWord);
     ASSERT_EQUAL(result, 1);
 }
+
 CTEST(createSword, incorrect_input)
 {
     char* secretWord;
