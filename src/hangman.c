@@ -1,5 +1,7 @@
 #include "hangman.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 void hangman(int n)
 {
@@ -33,4 +35,16 @@ void hangman(int n)
                "\t||\n    \t||\n    \t||\n    \t||\n +=========+\n");
         break;
     }
+}
+int createSword(int sizeWord, char* secretWord)
+{
+    if (sizeWord >= 3 && sizeWord <= 10) {
+        secretWord = (char*)calloc(sizeWord, sizeof(char));
+        if (secretWord == NULL) {
+            return -1;
+        }
+        memset(secretWord, '_', sizeWord);
+        return 1;
+    }
+    return -1;
 }
