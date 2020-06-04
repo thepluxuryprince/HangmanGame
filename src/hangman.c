@@ -77,6 +77,18 @@ int victoryCondition(int guessChar, char* word)
     return -1;
 }
 
+int isWordiuc(char ch)
+{
+    if (ch >= 'a' && ch <= 'z') {
+        ch = ch - ('a' - 'A');
+        return 1;
+    }
+    if (ch >= 'A' && ch <= 'Z') {
+        return 1;
+    }
+    return -1;
+}
+
 int mainMenuPrint()
 {
     int themes;
@@ -86,4 +98,12 @@ int mainMenuPrint()
     printf("Введите число выбранной темы:");
     scanf("%d", &themes);
     return themes;
+}
+
+int isTheme(int themes)
+{
+    if (themes >= 1 && themes <= 8) {
+        return 1;
+    }
+    return -1;
 }
