@@ -1,10 +1,13 @@
 #include "hangman.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <time.h>
 int main()
 {
     FILE* fp;
-    int themes;
+    char word[10];
+    int themes, rndStr;
 
     themes = mainMenuPrint();
     if (themes == 1) {
@@ -53,6 +56,12 @@ int main()
             printf("Ошибка открытия файла!\n");
             return 0;
         }
+    }
+    rndStr = randomStr();
+    fseek(fp, 0, SEEK_SET);
+
+    for (int i = 0; i < rndStr; i++) {
+        fscanf(fp, "%s", word);
     }
     fclose(fp);
     return 0;
