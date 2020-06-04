@@ -105,6 +105,20 @@ void test_hangmanPrint()
     hangmanPrint(guessErr, secretWord, enterLetter);
     printf("\n");
 }
+CTEST(enterlet, correct_input)
+{
+    char enterLetter[20] = {"ASDC"};
+    int result = enterlet(enterLetter, 4, 'W');
+    printf("%s", enterLetter);
+    ASSERT_EQUAL(result, 1);
+}
+CTEST(enterlet, incorrect_input)
+{
+    char enterLetter[20] = {"ASDC"};
+    int result = enterlet(enterLetter, 4, 'A');
+    printf("%s", enterLetter);
+    ASSERT_EQUAL(result, -1);
+}
 void test_hangman()
 {
     for (int i = 0; i <= 6; i++) {
