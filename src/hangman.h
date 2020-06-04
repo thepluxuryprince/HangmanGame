@@ -6,6 +6,7 @@ int randomStr();
 int mainMenuPrint();
 int isTheme(int themes);
 int isWordiuc(char ch);
+int enterlet(char* enterLetter, int iter, char ch);
 int victoryCondition(int guessChar, char* word);
 int loseCondition(int guessErr, char* word);
 void hangmanPrint(int guessErr, char* secretWord, char* enterLetter);
