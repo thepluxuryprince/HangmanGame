@@ -36,6 +36,21 @@ void hangman(int n)
         break;
     }
 }
+
+int check(char* word, char sChar, char* eLetter, int guessChar, char* sWord)
+{
+    for (int i = 0; i < strlen(word); i++) {
+        if (word[i] == sChar) {
+            sWord[i] = sChar;
+            guessChar--;
+            return 0;
+        } else if (strchr(eLetter, sChar)) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
 int createSword(int sizeWord, char* secretWord)
 {
     if (sizeWord >= 3 && sizeWord <= 10) {

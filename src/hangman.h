@@ -6,6 +6,7 @@ int isTheme(int themes);
 int isWordiuc(char ch);
 int victoryCondition(int guessChar, char* word);
 int loseCondition(int guessErr, char* word);
-void hangmanPrint(int guessErr, char* secretWord, char* enterLetter);
+void hangmanPrint(int guessErr, char* sWord, char* enterLetter);
 int createSword(int sizeWord, char* secretWord);
+int check(char* word, char sChar, char* eLetter, int guessChar, char* sWord);
 #endif
