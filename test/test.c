@@ -59,11 +59,22 @@ CTEST(loseCondition, incorrect_input)
     int result = loseCondition(guessErr, word);
     ASSERT_EQUAL(result, -1);
 }
-
 CTEST(createSword, incorrect_input)
 {
     char* secretWord;
     int result = createSword(-1, secretWord);
+    ASSERT_EQUAL(result, -1);
+}
+CTEST(isTheme, correct_input)
+{
+    int theme = 2;
+    int result = isTheme(theme);
+    ASSERT_EQUAL(result, 1);
+}
+CTEST(isTheme, incorrect_input)
+{
+    int theme = 99;
+    int result = isTheme(theme);
     ASSERT_EQUAL(result, -1);
 }
 void test_hangmanPrint()
