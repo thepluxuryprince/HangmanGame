@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 void hangman(int n)
 {
@@ -106,4 +107,13 @@ int isTheme(int themes)
         return 1;
     }
     return -1;
+}
+int randomStr()
+{
+    srand(time(NULL));
+    int rndStr = (rand() % 10);
+    if (rndStr == 0) {
+        rndStr++;
+    }
+    return rndStr;
 }
