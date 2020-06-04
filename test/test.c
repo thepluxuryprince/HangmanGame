@@ -11,7 +11,7 @@ CTEST(createSword, correct_input)
 CTEST(victoryCondition, correct_input)
 {
     int guessChar = 0;
-    char word[] = { "test" };
+    char word[] = {"test"};
     int result = victoryCondition(guessChar, word);
     ASSERT_EQUAL(result, 1);
 }
@@ -19,7 +19,7 @@ CTEST(victoryCondition, correct_input)
 CTEST(victoryCondition, incorrect_input)
 {
     int guessChar = 6;
-    char word[] = { "test" };
+    char word[] = {"test"};
     int result = victoryCondition(guessChar, word);
     ASSERT_EQUAL(result, -1);
 }
@@ -27,15 +27,35 @@ CTEST(victoryCondition, incorrect_input)
 CTEST(loseCondition, correct_input)
 {
     int guessErr = 6;
-    char word[] = { "test" };
+    char word[] = {"test"};
     int result = loseCondition(guessErr, word);
     ASSERT_EQUAL(result, 1);
 }
-
+CTEST(isWordiuc, up_case)
+{
+    char ch = 'A';
+    int result = 0;
+    result = isWordiuc(ch);
+    ASSERT_EQUAL(result, 1);
+}
+CTEST(isWordiuc, wrong_input)
+{
+    char ch = '2';
+    int result = 0;
+    result = isWordiuc(ch);
+    ASSERT_EQUAL(result, -1);
+}
+CTEST(isWordiuc, low_case)
+{
+    char ch = 'a';
+    int result = 0;
+    result = isWordiuc(ch);
+    ASSERT_EQUAL(result, 1);
+}
 CTEST(loseCondition, incorrect_input)
 {
     int guessErr = 0;
-    char word[] = { "test" };
+    char word[] = {"test"};
     int result = loseCondition(guessErr, word);
     ASSERT_EQUAL(result, -1);
 }
@@ -49,8 +69,8 @@ CTEST(createSword, incorrect_input)
 void test_hangmanPrint()
 {
     int guessErr = 5;
-    char secretWord[] = { "_____" };
-    char enterLetter[] = { "abcde" };
+    char secretWord[] = {"_____"};
+    char enterLetter[] = {"abcde"};
     printf("\n<<test_hangmanPrint>>\n");
     hangmanPrint(guessErr, secretWord, enterLetter);
     printf("\n");
