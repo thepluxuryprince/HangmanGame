@@ -1,6 +1,8 @@
 #ifndef HANGMAN_H
 #define HANGMAN_H
+#include <stdio.h>
 void hangman(int n);
+int randomStr();
 int mainMenuPrint();
 int isTheme(int themes);
 int isWordiuc(char ch);
