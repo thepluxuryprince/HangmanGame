@@ -99,3 +99,11 @@ int mainMenuPrint()
     scanf("%d", &themes);
     return themes;
 }
+
+int isTheme(int themes)
+{
+    if (themes >= 1 && themes <= 8) {
+        return 1;
+    }
+    return -1;
+}

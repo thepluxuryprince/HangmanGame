@@ -2,6 +2,7 @@
 #define HANGMAN_H
 void hangman(int n);
 int mainMenuPrint();
+int isTheme(int themes);
 int isWordiuc(char ch);
 int victoryCondition(int guessChar, char* word);
 int loseCondition(int guessErr, char* word);
