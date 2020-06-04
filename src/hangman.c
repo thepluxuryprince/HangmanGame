@@ -77,6 +77,18 @@ int victoryCondition(int guessChar, char* word)
     return -1;
 }
 
+int isWordiuc(char ch)
+{
+    if (ch >= 'a' && ch <= 'z') {
+        ch = ch - ('a' - 'A');
+        return 1;
+    }
+    if (ch >= 'A' && ch <= 'Z') {
+        return 1;
+    }
+    return -1;
+}
+
 int mainMenuPrint()
 {
     int themes;
