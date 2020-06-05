@@ -78,6 +78,7 @@ void hangmanPrint(int guessErr, char* secretWord, char* enterLetter)
     printf("%s\n", secretWord);
     printf("Введенные буквы: ");
     printf("%s", enterLetter);
+    printf("\nВведите букву:\n");
 }
 
 int loseCondition(int guessErr, char* word)
