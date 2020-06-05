@@ -71,6 +71,7 @@ void hangmanPrint(int guessErr, char* secretWord, char* enterLetter)
 int loseCondition(int guessErr, char* word)
 {
     if (guessErr == 6) {
+        hangman(6);
         printf("%s", word);
         printf("\nВы проиграли(\n");
         return 1;
@@ -78,9 +79,10 @@ int loseCondition(int guessErr, char* word)
     return -1;
 }
 
-int victoryCondition(int guessChar, char* word)
+int victoryCondition(int guessChar, char* word, int guessErr)
 {
     if (guessChar == 0) {
+        hangman(guessErr);
         printf("%s", word);
         printf("\nВы победили!\n");
         return 1;
