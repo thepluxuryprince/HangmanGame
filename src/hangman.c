@@ -38,16 +38,23 @@ void hangman(int n)
     }
 }
 
-int check(char* word, char sChar, char* eLetter, int guessChar, char* sWord)
+int check(char* word, char* sChar, char* eLetter, int* guessChar, char* sWord)
 {
+    int flag = 1;
     for (int i = 0; i < strlen(word); i++) {
-        if (word[i] == sChar) {
-            sWord[i] = sChar;
-            guessChar--;
-            return 0;
-        } else if (strchr(eLetter, sChar)) {
-            return 0;
+        if (word[i] == *sChar) {
+            flag = 0;
+            if (!(strchr(eLetter, *sChar))) {
+                (*guessChar)--;
+            }
+            sWord[i] = *sChar;
+            if (strchr(eLetter, *sChar)) {
+                flag = 0;
+            }
         }
+    }
+    if (flag == 0) {
+        return 0;
     }
     return 1;
 }
@@ -58,6 +65,7 @@ void hangmanPrint(int guessErr, char* secretWord, char* enterLetter)
     printf("%s\n", secretWord);
     printf("Введенные буквы: ");
     printf("%s", enterLetter);
+    printf("\nВведите букву:\n");
 }
 
 int loseCondition(int guessErr, char* word)
