@@ -128,17 +128,35 @@ void test_hangmanPrint()
 }
 CTEST(enterlet, correct_input)
 {
+    int a = 4;
+    char ch = 'W';
     char enterLetter[20] = {"ASDC"};
-    int result = enterlet(enterLetter, 4, 'W');
-    printf("%s", enterLetter);
+    int result = enterlet(enterLetter, &a, &ch);
     ASSERT_EQUAL(result, 1);
+}
+CTEST(enterlet, correct_input_ch)
+{
+    int a = 4;
+    char ch = 'W';
+    char enterLetter[20] = {"ASDC"};
+    int result = enterlet(enterLetter, &a, &ch);
+    ASSERT_STR("ASDCW", enterLetter);
 }
 CTEST(enterlet, incorrect_input)
 {
+    int a = 4;
+    char ch = 'A';
     char enterLetter[20] = {"ASDC"};
-    int result = enterlet(enterLetter, 4, 'A');
-    printf("%s", enterLetter);
+    int result = enterlet(enterLetter, &a, &ch);
     ASSERT_EQUAL(result, -1);
+}
+CTEST(enterlet, incorrect_input_ch)
+{
+    int a = 4;
+    char ch = 'A';
+    char enterLetter[20] = {"ASDC"};
+    int result = enterlet(enterLetter, &a, &ch);
+    ASSERT_STR("ASDC", enterLetter);
 }
 void test_hangman()
 {
