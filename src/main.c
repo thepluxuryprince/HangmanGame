@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-int main()
+int main() // init commit for hotfix
 {
     FILE* fp;
     char word[10];
