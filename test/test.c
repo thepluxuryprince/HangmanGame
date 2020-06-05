@@ -31,26 +31,47 @@ CTEST(loseCondition, correct_input)
     int result = loseCondition(guessErr, word);
     ASSERT_EQUAL(result, 1);
 }
+CTEST(isWordiuc, up_case_ch)
+{
+    char ch[1] = {"B"};
+    int result = 0;
+    result = isWordiuc(ch);
+    ASSERT_STR("B", ch);
+}
 CTEST(isWordiuc, up_case)
 {
-    char ch = 'A';
+    char ch[1] = {"B"};
     int result = 0;
     result = isWordiuc(ch);
     ASSERT_EQUAL(result, 1);
 }
+CTEST(isWordiuc, wrong_input_ch)
+{
+    char ch[1] = {";"};
+    int result = 0;
+    result = isWordiuc(ch);
+    ASSERT_STR(";", ch);
+}
 CTEST(isWordiuc, wrong_input)
 {
-    char ch = '2';
+    char ch[1] = {";"};
     int result = 0;
     result = isWordiuc(ch);
     ASSERT_EQUAL(result, -1);
 }
 CTEST(isWordiuc, low_case)
 {
-    char ch = 'a';
+    char ch[1] = {"s"};
     int result = 0;
     result = isWordiuc(ch);
-    ASSERT_EQUAL(result, 1);
+    ASSERT_EQUAL(1, result);
+}
+CTEST(isWordiuc, low_case_ch)
+{
+    char ch[1] = {"s"};
+    int result = 0;
+    result = isWordiuc(ch);
+    ASSERT_STR("S", ch);
 }
 CTEST(loseCondition, incorrect_input)
 {
