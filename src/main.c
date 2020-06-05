@@ -86,14 +86,20 @@ int main()
         }
 
         if (victoryCondition(guessChar, word, guessErr) == 1) {
+            free(secretWord);
+            free(enterLetter);
             _Exit(EXIT_SUCCESS);
         }
         if (loseCondition(guessErr, word) == 1) {
+            free(secretWord);
+            free(enterLetter);
             _Exit(EXIT_SUCCESS);
         }
         hangmanPrint(guessErr, secretWord, enterLetter);
         scanf(" %c", &scanChar);
         if (isWordiuc(&scanChar) == -1) {
+            free(secretWord);
+            free(enterLetter);
             printf("Ошибка! Недопустимый символ.\n");
             return 0;
         }
@@ -105,6 +111,7 @@ int main()
         iter++;
         system("clear");
     }
-
+    free(secretWord);
+    free(enterLetter);
     return 0;
 }
