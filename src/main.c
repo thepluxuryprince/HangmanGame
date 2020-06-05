@@ -14,7 +14,7 @@ int main()
     themes = mainMenuPrint();
     if (isTheme(themes) == -1) {
         printf("Ошибка! Недопустимое знчение номера темы.\n");
-        _Exit(EXIT_SUCCESS);
+        return 0;
     }
     if (themes == 1) {
         if (!(fp = fopen("SCHOOL.txt", "rt"))) {
