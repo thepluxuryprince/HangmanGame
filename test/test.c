@@ -4,17 +4,19 @@
 #include <ctest.h>
 CTEST(victoryCondition, correct_input)
 {
+    int guessErr = 2;
     int guessChar = 0;
     char word[] = {"test"};
-    int result = victoryCondition(guessChar, word);
+    int result = victoryCondition(guessChar, word, guessErr);
     ASSERT_EQUAL(result, 1);
 }
 
 CTEST(victoryCondition, incorrect_input)
 {
+    int guessErr = 1;
     int guessChar = 6;
     char word[] = {"test"};
-    int result = victoryCondition(guessChar, word);
+    int result = victoryCondition(guessChar, word, guessErr);
     ASSERT_EQUAL(result, -1);
 }
 
