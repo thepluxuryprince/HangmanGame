@@ -3,11 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-int main() // init commit for hotfix
+int main()
 {
     FILE* fp;
     char word[10];
-    int themes, rndStr;
+    int themes, rndStr, sizeWord = 0;
 
     themes = mainMenuPrint();
     if (themes == 1) {
@@ -64,5 +64,9 @@ int main() // init commit for hotfix
         fscanf(fp, "%s", word);
     }
     fclose(fp);
+    sizeWord = strlen(word);
+
+    secretWord = (char*)calloc(sizeWord, sizeof(char));
+    memset(secretWord, '_', sizeWord);
     return 0;
 }
