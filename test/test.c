@@ -31,26 +31,47 @@ CTEST(loseCondition, correct_input)
     int result = loseCondition(guessErr, word);
     ASSERT_EQUAL(result, 1);
 }
+CTEST(isWordiuc, up_case_ch)
+{
+    char ch[1] = {"B"};
+    int result = 0;
+    result = isWordiuc(ch);
+    ASSERT_STR("B", ch);
+}
 CTEST(isWordiuc, up_case)
 {
-    char ch = 'A';
+    char ch[1] = {"B"};
     int result = 0;
     result = isWordiuc(ch);
     ASSERT_EQUAL(result, 1);
 }
+CTEST(isWordiuc, wrong_input_ch)
+{
+    char ch[1] = {";"};
+    int result = 0;
+    result = isWordiuc(ch);
+    ASSERT_STR(";", ch);
+}
 CTEST(isWordiuc, wrong_input)
 {
-    char ch = '2';
+    char ch[1] = {";"};
     int result = 0;
     result = isWordiuc(ch);
     ASSERT_EQUAL(result, -1);
 }
 CTEST(isWordiuc, low_case)
 {
-    char ch = 'a';
+    char ch[1] = {"s"};
     int result = 0;
     result = isWordiuc(ch);
-    ASSERT_EQUAL(result, 1);
+    ASSERT_EQUAL(1, result);
+}
+CTEST(isWordiuc, low_case_ch)
+{
+    char ch[1] = {"s"};
+    int result = 0;
+    result = isWordiuc(ch);
+    ASSERT_STR("S", ch);
 }
 CTEST(loseCondition, incorrect_input)
 {
@@ -107,23 +128,46 @@ void test_hangmanPrint()
 }
 CTEST(enterlet, correct_input)
 {
+    int a = 4;
+    char ch = 'W';
     char enterLetter[20] = {"ASDC"};
-    int result = enterlet(enterLetter, 4, 'W');
-    printf("%s", enterLetter);
+    int result = enterlet(enterLetter, &a, &ch);
     ASSERT_EQUAL(result, 1);
+}
+CTEST(enterlet, correct_input_ch)
+{
+    int a = 4;
+    char ch = 'W';
+    char enterLetter[20] = {"ASDC"};
+    int result = enterlet(enterLetter, &a, &ch);
+    ASSERT_STR("ASDCW", enterLetter);
 }
 CTEST(enterlet, incorrect_input)
 {
+    int a = 4;
+    char ch = 'A';
     char enterLetter[20] = {"ASDC"};
-    int result = enterlet(enterLetter, 4, 'A');
-    printf("%s", enterLetter);
+    int result = enterlet(enterLetter, &a, &ch);
     ASSERT_EQUAL(result, -1);
+}
+CTEST(enterlet, incorrect_input_ch)
+{
+    int a = 4;
+    char ch = 'A';
+    char enterLetter[20] = {"ASDC"};
+    int result = enterlet(enterLetter, &a, &ch);
+    ASSERT_STR("ASDC", enterLetter);
 }
 void test_hangman()
 {
     for (int i = 0; i <= 6; i++) {
         hangman(i);
     }
+}
+CTEST(rndStr, in_area)
+{
+    int result1 = randomStr();
+    ASSERT_INTERVAL(1, 10, result1);
 }
 int main(int argc, const char** argv)
 {

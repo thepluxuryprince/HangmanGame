@@ -93,13 +93,13 @@ int victoryCondition(int guessChar, char* word)
     return -1;
 }
 
-int isWordiuc(char ch)
+int isWordiuc(char* ch)
 {
-    if (ch >= 'a' && ch <= 'z') {
-        ch = ch - ('a' - 'A');
+    if (*ch >= 'a' && *ch <= 'z') {
+        *ch = *ch - ('a' - 'A');
         return 1;
     }
-    if (ch >= 'A' && ch <= 'Z') {
+    if (*ch >= 'A' && *ch <= 'Z') {
         return 1;
     }
     return -1;
@@ -126,23 +126,23 @@ int isTheme(int themes)
 int randomStr()
 {
     srand(time(NULL));
-    int rndStr = (rand() % 10);
+    int rndStr = (rand() % 10) + 1;
     if (rndStr == 0) {
         rndStr++;
     }
     return rndStr;
 }
-int enterlet(char* enterLetter, int iter, char ch)
+int enterlet(char* enterLetter, int* iter, char* ch)
 {
     int flg = 1;
-    for (int k = 0; k < iter; k++) {
-        if (enterLetter[k] == ch) {
+    for (int k = 0; k < *iter; k++) {
+        if (enterLetter[k] == *ch) {
             flg = -1;
-            iter--;
+            (*iter)--;
             return flg;
         }
     }
-    enterLetter[iter] = ch;
-    enterLetter[iter + 1] = '\0';
+    enterLetter[*iter] = *ch;
+    enterLetter[*iter + 1] = '\0';
     return flg;
 }
