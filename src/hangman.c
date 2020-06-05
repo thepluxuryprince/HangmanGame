@@ -38,31 +38,25 @@ void hangman(int n)
     }
 }
 
-int check(char* word, char sChar, char* eLetter, int guessChar, char* sWord)
+int check(char* word, char* sChar, char* eLetter, int* guessChar, char* sWord)
 {
+    int flag = 1;
     for (int i = 0; i < strlen(word); i++) {
-        if (word[i] == sChar) {
-            sWord[i] = sChar;
-            guessChar--;
-            return 0;
-        } else if (strchr(eLetter, sChar)) {
-            return 0;
+        if (word[i] == *sChar) {
+            flag = 0;
+            if (!(strchr(eLetter, *sChar))) {
+                (*guessChar)--;
+            }
+            sWord[i] = *sChar;
+            if (strchr(eLetter, *sChar)) {
+                flag = 0;
+            }
         }
+    }
+    if (flag == 0) {
+        return 0;
     }
     return 1;
-}
-
-int createSword(int sizeWord, char* secretWord)
-{
-    if (sizeWord >= 3 && sizeWord <= 10) {
-        secretWord = (char*)calloc(sizeWord, sizeof(char));
-        if (secretWord == NULL) {
-            return -1;
-        }
-        memset(secretWord, '_', sizeWord);
-        return 1;
-    }
-    return -1;
 }
 
 void hangmanPrint(int guessErr, char* secretWord, char* enterLetter)
@@ -71,6 +65,7 @@ void hangmanPrint(int guessErr, char* secretWord, char* enterLetter)
     printf("%s\n", secretWord);
     printf("Введенные буквы: ");
     printf("%s", enterLetter);
+    printf("\nВведите букву:\n");
 }
 
 int loseCondition(int guessErr, char* word)
@@ -93,13 +88,13 @@ int victoryCondition(int guessChar, char* word)
     return -1;
 }
 
-int isWordiuc(char ch)
+int isWordiuc(char* ch)
 {
-    if (ch >= 'a' && ch <= 'z') {
-        ch = ch - ('a' - 'A');
+    if (*ch >= 'a' && *ch <= 'z') {
+        *ch = *ch - ('a' - 'A');
         return 1;
     }
-    if (ch >= 'A' && ch <= 'Z') {
+    if (*ch >= 'A' && *ch <= 'Z') {
         return 1;
     }
     return -1;
@@ -126,23 +121,23 @@ int isTheme(int themes)
 int randomStr()
 {
     srand(time(NULL));
-    int rndStr = (rand() % 10);
+    int rndStr = (rand() % 10) + 1;
     if (rndStr == 0) {
         rndStr++;
     }
     return rndStr;
 }
-int enterlet(char* enterLetter, int iter, char ch)
+int enterlet(char* enterLetter, int* iter, char* ch)
 {
     int flg = 1;
-    for (int k = 0; k < iter; k++) {
-        if (enterLetter[k] == ch) {
+    for (int k = 0; k < *iter; k++) {
+        if (enterLetter[k] == *ch) {
             flg = -1;
-            iter--;
+            (*iter)--;
             return flg;
         }
     }
-    enterLetter[iter] = ch;
-    enterLetter[iter + 1] = '\0';
+    enterLetter[*iter] = *ch;
+    enterLetter[*iter + 1] = '\0';
     return flg;
 }
