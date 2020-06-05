@@ -132,17 +132,17 @@ int randomStr()
     }
     return rndStr;
 }
-int enterlet(char* enterLetter, int iter, char ch)
+int enterlet(char* enterLetter, int* iter, char* ch)
 {
     int flg = 1;
-    for (int k = 0; k < iter; k++) {
-        if (enterLetter[k] == ch) {
+    for (int k = 0; k < *iter; k++) {
+        if (enterLetter[k] == *ch) {
             flg = -1;
-            iter--;
+            (*iter)--;
             return flg;
         }
     }
-    enterLetter[iter] = ch;
-    enterLetter[iter + 1] = '\0';
+    enterLetter[*iter] = *ch;
+    enterLetter[*iter + 1] = '\0';
     return flg;
 }
