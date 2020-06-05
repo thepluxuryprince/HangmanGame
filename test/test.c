@@ -83,7 +83,7 @@ CTEST(check, correct_input)
     char test_word[] = {"auto"}, eLetter[] = {"bcd"}, sWord[] = {"____"};
     char sChar = 'a';
     int guessChar = 4;
-    int result = check(test_word, sChar, eLetter, guessChar, sWord);
+    int result = check(test_word, &sChar, eLetter, &guessChar, sWord);
     ASSERT_EQUAL(result, 0);
 }
 
@@ -92,7 +92,7 @@ CTEST(check, incorrect_input)
     char test_word[] = {"auto"}, eLetter[] = {"bcd"}, sWord[] = {"____"};
     char sChar = 'z';
     int guessChar = 4;
-    int result = check(test_word, sChar, eLetter, guessChar, sWord);
+    int result = check(test_word, &sChar, eLetter, &guessChar, sWord);
     ASSERT_EQUAL(result, 1);
 }
 
