@@ -126,7 +126,7 @@ int isTheme(int themes)
 int randomStr()
 {
     srand(time(NULL));
-    int rndStr = (rand() % 10);
+    int rndStr = (rand() % 10) + 1;
     if (rndStr == 0) {
         rndStr++;
     }
