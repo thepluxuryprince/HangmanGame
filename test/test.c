@@ -125,6 +125,11 @@ void test_hangman()
         hangman(i);
     }
 }
+CTEST(rndStr, in_area)
+{
+    int result1 = randomStr();
+    ASSERT_INTERVAL(1, 10, result1);
+}
 int main(int argc, const char** argv)
 {
     test_hangman();
