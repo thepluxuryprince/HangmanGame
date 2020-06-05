@@ -52,19 +52,6 @@ int check(char* word, char sChar, char* eLetter, int guessChar, char* sWord)
     return 1;
 }
 
-int createSword(int sizeWord, char* secretWord)
-{
-    if (sizeWord >= 3 && sizeWord <= 10) {
-        secretWord = (char*)calloc(sizeWord, sizeof(char));
-        if (secretWord == NULL) {
-            return -1;
-        }
-        memset(secretWord, '_', sizeWord);
-        return 1;
-    }
-    return -1;
-}
-
 void hangmanPrint(int guessErr, char* secretWord, char* enterLetter)
 {
     hangman(guessErr);
